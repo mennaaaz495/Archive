@@ -1,0 +1,70 @@
+First OOP Assignment Without Constructor And Destructor
+The code in main.cpp
+#include "teamMembers.h"
+using namespace std;
+int main() {
+   cout << "Enter The number of Team Members\n";
+   int n;
+   cin >> n;
+   float sum = 0;
+   vector<teamMembers> v(n);
+   for (int i = 0; i < n; i++) {
+       string name;
+       float exp;
+       cout << "Enter The name of member #" << i + 1 << endl;
+       cin >> name;
+       cout << "Enter The Experience of this Member\n";
+       cin >> exp;
+       v[i].setName(name);
+       v[i].setExp(exp);
+       sum += exp;
+   }
+   for (int i = 0; i < n; i++) {
+       cout << "Member name : " << v[i].getName() << '\n';
+       cout << "Member Experience : " << v[i].getExp() << '\n';
+       cout << "-------------------------------------------------\n";
+   }
+   cout << "The average Team Experience : " << sum / n << '\n';
+
+   return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+ 
+The Code in teamMembers.h
+#ifndef TEAMMEMBERS_H
+#define TEAMMEMBERS_H
+#include <bits/stdc++.h>
+using namespace std;
+class teamMembers {
+private:
+   string name;
+   float exp;
+public:
+   void setName(string nam);
+   string getName();
+   void setExp(float xp);
+   float getExp();
+
+};
+
+#endif
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
+The code in teamMembers.cpp
+#include "teamMembers.h"
+void teamMembers::setName(string nam) {
+   name = nam;
+}
+string teamMembers::getName() {
+   return name;
+}
+void teamMembers::setExp(float xp) {
+   exp = xp;
+}
+float teamMembers::getExp() {
+   return exp;
+}
